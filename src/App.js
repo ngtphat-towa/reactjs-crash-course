@@ -48,8 +48,11 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header></Header>
-      <AddTask onAdd={addTask}></AddTask>
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {showAddTask && <AddTask onAdd={addTask}></AddTask>}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
