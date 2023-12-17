@@ -3,7 +3,7 @@ import Header from "./components/header";
 import Tasks from "./components/tasks";
 
 const App = () => {
-  const [dbTasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "Doctors Appointment",
@@ -26,11 +26,16 @@ const App = () => {
 
   const deleteTask = (id) => {
     console.log("delete", id);
+    setTasks(tasks.filter((task) => task.id !== id));
   };
   return (
     <div className="container">
       <Header></Header>
-      <Tasks tasks={dbTasks} on />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} />
+      ) : (
+        "No task to shows"
+      )}
     </div>
   );
 };
