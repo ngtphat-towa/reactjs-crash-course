@@ -17,7 +17,6 @@ const Header = ({ title, onAdd, showAdd }) => {
 export default Header;
 Header.defaultProps = {
   title: "Task Tracker",
-  onClick: null,
 };
 
 Header.propTypes = {

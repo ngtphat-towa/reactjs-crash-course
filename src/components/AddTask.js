@@ -8,15 +8,13 @@ const AddTask = ({ onAdd }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // Validate the task
     if (!text) {
       alert("Please add a task");
       return;
     }
-    // Add the item
+
     onAdd({ text, day, reminder });
 
-    // Clear form input
     setText("");
     setDay("");
     setReminder(false);
